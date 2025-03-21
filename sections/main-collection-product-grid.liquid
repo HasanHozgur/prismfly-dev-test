@@ -116,7 +116,18 @@
           %}
         </aside>
       {%- endif -%}
-
+      {% comment %} Collection Tab Start {% endcomment %}
+      <div id="collection-tabs">
+        {% for block in section.blocks %}
+          <button
+            class="collection-tab {% if collection.handle == block.settings.collection %}active{% endif %}"
+            data-handle="{{ block.settings.collection }}"
+          >
+            {{ block.settings.collection | capitalize }}
+          </button>
+        {% endfor %}
+      </div>
+      {% comment %} Collection Tab Start End{% endcomment %}
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
@@ -233,7 +244,7 @@
           "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -404,6 +415,32 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection Tab",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Product Grid",
+      "blocks": [
+        {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "all"
+          }
+        }
+      ]
     }
   ]
 }
