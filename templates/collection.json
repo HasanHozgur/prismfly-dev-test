@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -10,9 +19,35 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "blocks": {
+        "collection_tab_cdmc7N": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "hats-accessories"
+          }
+        },
+        "collection_tab_JfCtyc": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "t-shirts"
+          }
+        },
+        "collection_tab_jx7rQG": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "pants-bottoms"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_cdmc7N",
+        "collection_tab_JfCtyc",
+        "collection_tab_jx7rQG"
+      ],
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -23,7 +58,6 @@
         "enable_filtering": true,
         "filter_type": "horizontal",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
       }
