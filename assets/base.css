@@ -3713,17 +3713,4 @@ details-disclosure > details {
   border-color: var(--color-button-border);
 }
 
-.small-hide {
-  display: none !important;
-}
-
-@media screen and (min-width: 750px) {
-  .medium-up-hide {
-    display: none !important;
-  }
-  .small-hide {
-    display: inline-block !important;
-  }
-}
-
 /*Collection Tab End*/
