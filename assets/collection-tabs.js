@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileSelect = document.getElementById('collection-tabs-select');
 
   const switchToCollection = (handle) => {
-    // URL without filter parameters
+    // Create a clean URL without filter parameters
     const newUrl = `/collections/${handle}`;
 
     fetch(newUrl)
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'ProductGridContainer'
         )?.innerHTML;
 
-        // Get new facets
+        // Get new facets/filters container as well
         const newFilters = doc.getElementById(
           'main-collection-filters'
         )?.innerHTML;
@@ -57,22 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
           tab.classList.toggle('active', tab.dataset.handle === handle);
         });
 
-        // Sync mobile
+        // Sync mobile dropdown
         if (mobileSelect) {
           mobileSelect.value = handle;
         }
 
-        // URL update without any filter parameters
+        // Clean URL update without any filter parameters
         window.history.pushState({}, '', newUrl);
 
-        // Reinitialize
+        // Reinitialize any Shopify filter elements
         if (window.Shopify && window.Shopify.designMode) {
           document.dispatchEvent(new CustomEvent('shopify:section:load'));
         }
       });
   };
 
-  // For Desktop tabs
+  // Desktop tabs
   desktopTabs.forEach((tab) => {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // For Mobile dropdown
+  // Mobile dropdown
   if (mobileSelect) {
     mobileSelect.addEventListener('change', (e) => {
       e.preventDefault();
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       switchToCollection(handle);
     });
 
-    // Parent form from submitting
+    // Prevent parent form from submitting
     const form = mobileSelect.closest('form');
     if (form) {
       form.addEventListener('submit', (e) => e.preventDefault());

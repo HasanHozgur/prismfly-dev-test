@@ -117,9 +117,7 @@
         </aside>
       {%- endif -%}
       {% comment %} Collection Tab Start {% endcomment %}
-
       <div id="collection-tabs" class="collection-tabs-wrapper">
-        <!-- Mobile Dropdown -->
         <div class="collection-tabs-dropdown medium-up-hide">
           <select id="collection-tabs-select">
             {% for block in section.blocks %}
@@ -135,7 +133,6 @@
           </select>
         </div>
 
-        <!-- Desktop Tabs -->
         <div class="collection-tabs-buttons small-hide">
           {% for block in section.blocks %}
             <button
@@ -147,8 +144,7 @@
           {% endfor %}
         </div>
       </div>
-
-      {% comment %} Collection Tab Start End {% endcomment %}
+      {% comment %} Collection Tab End {% endcomment %}
 
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
