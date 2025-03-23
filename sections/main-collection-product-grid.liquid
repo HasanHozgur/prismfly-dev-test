@@ -117,17 +117,39 @@
         </aside>
       {%- endif -%}
       {% comment %} Collection Tab Start {% endcomment %}
-      <div id="collection-tabs">
-        {% for block in section.blocks %}
-          <button
-            class="collection-tab {% if collection.handle == block.settings.collection %}active{% endif %}"
-            data-handle="{{ block.settings.collection }}"
-          >
-            {{ block.settings.collection | capitalize }}
-          </button>
-        {% endfor %}
+
+      <div id="collection-tabs" class="collection-tabs-wrapper">
+        <!-- Mobile Dropdown -->
+        <div class="collection-tabs-dropdown medium-up-hide">
+          <select id="collection-tabs-select">
+            {% for block in section.blocks %}
+              <option
+                value="{{ block.settings.collection }}"
+                {% if collection.handle == block.settings.collection %}
+                  selected
+                {% endif %}
+              >
+                {{ block.settings.collection | capitalize }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Desktop Tabs -->
+        <div class="collection-tabs-buttons small-hide">
+          {% for block in section.blocks %}
+            <button
+              class="collection-tab {% if collection.handle == block.settings.collection %}active{% endif %}"
+              data-handle="{{ block.settings.collection }}"
+            >
+              {{ block.settings.collection | capitalize }}
+            </button>
+          {% endfor %}
+        </div>
       </div>
-      {% comment %} Collection Tab Start End{% endcomment %}
+
+      {% comment %} Collection Tab Start End {% endcomment %}
+
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"

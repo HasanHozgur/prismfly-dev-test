@@ -373,4 +373,7 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
+  {% if template contains 'collection' %}
+    <script src="{{ 'collection-tabs.js' | asset_url }}" defer></script>
+  {% endif %}
 </html>
